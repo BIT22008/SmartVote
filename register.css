@@ -1,0 +1,51 @@
+
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; }
+        .registration-card {
+            max-width: 600px;
+            margin: 50px auto;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            text-align: center;
+            padding: 20px;
+        }
+        .thumb-print-box {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .thumb-print-box:hover { border-color: #27ae60; background: #f9fffb; }
+        .btn-verify {
+    background-color: #3ea168; 
+    color: white;
+    font-weight: bold;
+    padding: 14px; 
+    width: 100%;    /* Full width */
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(62, 161, 104, 0.2);
+}
+
+.btn-verify:hover {
+    background-color: #3ea168; /* Darker Green  */
+    color: white;
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(41, 78, 32, 0.3);
+}
+
+
+.btn-verify:disabled {
+    background-color: #a5d6b7;
+    cursor: not-allowed;
+}

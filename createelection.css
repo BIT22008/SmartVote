@@ -1,0 +1,38 @@
+
+    body { 
+        background: #fdfdfd; 
+        font-family: 'Segoe UI', sans-serif; 
+    }
+    .form-card { max-width: 700px;
+         margin: 50px auto;
+          border: none; 
+          border-radius: 20px; 
+          box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+        }
+    .header-box { 
+        background: #2c3e50; 
+        color: white; 
+        padding: 30px; 
+        border-radius: 20px 20px 0 0;
+         text-align: center; 
+        }
+    .section-title { 
+        border-left: 5px solid #27ae60; 
+        padding-left: 10px; 
+        margin: 25px 0 15px; 
+        color: #2c3e50;
+        font-weight: bold;
+     }
+    .payment-box { 
+        background: #f8f9fa; 
+        border: 2px dashed #dee2e6; 
+        padding: 20px;
+         border-radius: 12px; }
+    .btn-submit { 
+        background: #27ae60; 
+        color: white;
+         padding: 15px;
+          font-weight: bold; 
+          width: 100%;
+           border-radius: 10px;
+            border: none; }

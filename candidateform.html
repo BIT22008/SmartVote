@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartVote | Candidate Nomination</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <link rel="stylesheet" href="candidateform.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="card form-card">
+        <div class="header-box">
+            <h2>Candidate Nomination Form</h2>
+            <p class="mb-0">Apply to represent your department in the upcoming election</p>
+        </div>
+        <div class="card-body p-4">
+            <form action="#">
+                
+                <div class="section-title">Personal & Employee Details</div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="As per Employee Record" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Employee ID</label>
+                        <input type="text" class="form-control" placeholder="e.g. BIT22009" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Manifesto (Briefly explain your goals)</label>
+                        <textarea class="form-control" rows="3" placeholder="I want to improve departmental facilities..."></textarea>
+                    </div>
+                </div>
+
+                <div class="section-title">Campaign Identity</div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">department Name / Symbol</label>
+                        <input type="text" class="form-control" placeholder="e.g. Unity Group">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Candidate Picture</label>
+                        <input type="file" class="form-control">
+                    </div>
+                </div>
+
+                <div class="section-title">Nomination Fee Payment</div>
+                <div class="payment-box">
+                    <p class="text-muted small mb-3">Note: A nomination fee of <strong>PKR 500</strong> is required to finalize your candidacy.</p>
+                    <div class="mb-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select" id="paymentMethod">
+                            <option value="jazzcash">JazzCash / EasyPaisa</option>
+                            <option value="bank">Bank Transfer</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Transaction ID / Reference Number</label>
+                        <input type="text" class="form-control" placeholder="Enter the 10-digit ID" required>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-all" type="checkbox" id="terms" required>
+                        <label class="form-check-label small" for="terms">
+                            I verify that the above information is correct and I will follow all organizational rules.
+                        </label>
+                    </div>
+                </div>
+
+               <a href="#"> <button type="submit" id="submitBtn" class="btn btn-submit mt-4 shadow-sm">
+                    <a href="pending.html" style="text-decoration: none; color: #dee2e6;">SUBMIT NOMINATION & PAY FEE</a>
+                </button></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        // Yahan aap validation bhi check kar sakte hain
+        // Abhi ke liye hum seedha redirect kar rahe hain
+        window.location.href = "pending.html"; 
+    });
+</script>
+</html>

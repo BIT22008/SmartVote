@@ -1,0 +1,40 @@
+:root {
+            --primary-color: #294e20;
+            --accent-color: #3ea168;
+        }
+        body { font-family: 'Segoe UI', sans-serif; overflow-x: hidden; } 
+        
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1540910419892-f0c74b0e8965?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .feature-card {
+            transition: all 0.3s ease-in-out;
+            border: none !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            transition: transform 0.5s ease;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .btn-primary { background-color: var(--accent-color); border: none; transition: 0.3s; }
+        .btn-primary:hover { background-color: #0d6933; transform: scale(1.05); }
+        .navbar-brand { font-weight: bold; color: var(--primary-color) !important; }
+        a { text-decoration: none; color: inherit; }
+    

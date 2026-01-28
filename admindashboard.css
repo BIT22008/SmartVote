@@ -1,0 +1,87 @@
+
+:root { --sidebar-bg: #1e293b;
+     --main-bg: #f8fafc; }
+        body { background-color: var(--main-bg); font-family: 'Inter', sans-serif; }
+        
+        /* Sidebar Styles */
+        .sidebar {
+    position: fixed; 
+    
+    top: 0;
+    left: 0;
+    height: 100vh; 
+    width: 16.666667%; 
+    z-index: 1000; 
+    overflow-y: auto; 
+}
+        .nav-link { color: #94a3b8; border-radius: 8px; margin-bottom: 5px; padding: 12px 20px; }
+        .nav-link:hover, .nav-link.active { background: #334155; color: white; }
+        
+        /* Stats Cards */
+        .stat-card { border: none; border-radius: 12px; transition: transform 0.2s; }
+        .stat-card:hover { transform: translateY(-5px); }
+        .icon-box { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        
+        /* Recent Activity Table */
+        .card { border-radius: 15px; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        
+@media (max-width: 767.98px) {
+        .sidebar {
+            position: relative;
+            height: auto;
+            width: 100%;
+        }
+        main {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+
+    .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 16.666667%; 
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        main {
+            margin-left: 16.666667%; 
+        }
+
+        /* --- SPA LOGIC CSS --- */
+        .content-section {
+            display: none; 
+        }
+        .content-section.active {
+            display: block; 
+        }
+
+        .nav-link { 
+         cursor: pointer;
+       }
+        .sidebar {
+            position: fixed;
+            top: 0; bottom: 0; left: 0;
+            z-index: 1000;
+            height: 100vh;
+            background-color: #2c3e50;
+        }
+       
+        
+       
+        .content-section { 
+            display: none; 
+        } 
+        
+        .content-section.active { 
+            display: block; 
+        }
+
+        .nav-link { cursor: pointer; }
+        @media (max-width: 767.98px) {
+            main { margin-left: 0; }
+            .sidebar { position: relative; height: auto; width: 100%; }
+        }

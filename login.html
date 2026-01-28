@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartVote | Secure Login & Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="card login-card">
+        <div class="card-header">
+            <h4><i class="fas fa-user-shield me-2"></i>Secure Voter Login</h4>
+            <p class="mb-0 small">Enter all registered credentials to receive OTP</p>
+        </div>
+        <div class="card-body p-4">
+            <form action="/auth-logic" method="POST">
+                
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="fullname" placeholder="Enter your registered name" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">CNIC Number</label>
+                        <input type="text" class="form-control" name="cnic" placeholder="xxxxx-xxxxxxx-x" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Employee ID</label>
+                        <input type="text" class="form-control" name="emp_id" placeholder="ID-12345" required>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="registered-email@org.com" required>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" name="dob" required>
+                    </div>
+
+                    <div class="col-md-12 mb-4 text-center">
+                        <label class="form-label d-block text-start">Biometric Identification</label>
+                        <div class="thumb-box" onclick="startLoginScan()">
+                            <i class="fas fa-fingerprint fa-3x mb-2 text-primary" id="loginIcon"></i>
+                            <p id="loginStatusText" class="mb-0 text-muted">Place your thumb on the scanner</p>
+                        </div>
+                        <input type="hidden" name="login_thumb_data" id="login_thumb_input">
+                    </div>
+                </div>
+
+                <div class="d-grid mt-3">
+    <button type="button" id="loginBtn" class="btn btn-verify shadow-sm w-100" onclick="handleLogin()">
+        <span id="btnText">VERIFY & SEND OTP <i class="fas fa-paper-plane ms-2"></i></span>
+        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+    </button>
+</div>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-white border-0 pb-4">
+            <small>Not registered? <a href="register.html" class="text-decoration-none">Create Account</a></small>
+        </div>
+    </div>
+</div>
+
+<script>
+    function startLoginScan() {
+        const statusText = document.getElementById('loginStatusText');
+        const icon = document.getElementById('loginIcon');
+        
+        statusText.innerText = "Checking record...";
+        icon.style.opacity = "0.5";
+        
+        // Simulating the backend biometric check
+        setTimeout(() => {
+            statusText.innerText = "Biometric Match Found!";
+            statusText.classList.remove('text-muted');
+            statusText.classList.add('text-success');
+            icon.classList.remove('text-primary');
+            icon.classList.add('text-success');
+            icon.style.opacity = "1";
+            document.getElementById('login_thumb_input').value = "verified_hash_token";
+        }, 2000);
+    }
+</script>
+<script>
+    // Existing Scan Function
+    function startLoginScan() {
+        const statusText = document.getElementById('loginStatusText');
+        const icon = document.getElementById('loginIcon');
+        
+        statusText.innerText = "Checking record...";
+        icon.style.opacity = "0.5";
+        
+        setTimeout(() => {
+            statusText.innerText = "Biometric Match Found!";
+            statusText.classList.remove('text-muted');
+            statusText.classList.add('text-success');
+            icon.classList.remove('text-primary');
+            icon.classList.add('text-success');
+            icon.style.opacity = "1";
+            document.getElementById('login_thumb_input').value = "verified_hash_token";
+        }, 2000);
+    }
+
+    // NAYA LOADER LOGIC
+    function handleLogin() {
+        const btn = document.getElementById('loginBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const thumbData = document.getElementById('login_thumb_input').value;
+
+        // Validation: Pehle thumb scan lazmi hai
+        if (!thumbData) {
+            alert("Please complete Biometric Identification first!");
+            return;
+        }
+
+        // Loader start karein
+        btnText.classList.add('d-none'); // Text hide karein
+        btnSpinner.classList.remove('d-none'); // Spinner dikhayein
+        btn.disabled = true; // Button disable karein
+
+        // 2 seconds baad OTP page par redirect
+        setTimeout(() => {
+            window.location.href = "otp.html";
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>

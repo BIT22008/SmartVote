@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartVote | OTP Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <link rel="stylesheet" href="otp.css">
+
+</head>
+<body>
+
+<div class="otp-container">
+    <div class="mb-4">
+        <i class="fas fa-shield-alt fa-3x text-success"></i>
+    </div>
+    <h3 class="fw-bold">Security Verification</h3>
+    <p class="text-muted">Enter the 6-digit code sent to your registered email to continue.</p>
+
+    <div class="otp-inputs">
+        <input type="text" class="otp-field" maxlength="1" oninput="moveNext(this)" onkeydown="moveBack(event, this)">
+        <input type="text" class="otp-field" maxlength="1" oninput="moveNext(this)" onkeydown="moveBack(event, this)">
+        <input type="text" class="otp-field" maxlength="1" oninput="moveNext(this)" onkeydown="moveBack(event, this)">
+        <input type="text" class="otp-field" maxlength="1" oninput="moveNext(this)" onkeydown="moveBack(event, this)">
+        <input type="text" class="otp-field" maxlength="1" oninput="moveNext(this)" onkeydown="moveBack(event, this)">
+        <input type="text" class="otp-field" maxlength="1" oninput="moveNext(this)" onkeydown="moveBack(event, this)">
+    </div>
+
+    <button type="button" id="verifyBtn" class="btn btn-verify" onclick="verifyOTP()">
+    <span id="btnText">VERIFY & LOGIN</span>
+    <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+</button>
+    
+    <div class="mt-4">
+        <p class="small text-muted mb-1">Didn't get the code?</p>
+        <a href="#" class="text-decoration-none fw-bold" style="color: #2c3e50;">Resend OTP</a>
+    </div>
+</div>
+
+<script>
+    // Agle box mein move karne ke liye
+    function moveNext(current) {
+        if (current.value.length >= 1) {
+            let next = current.nextElementSibling;
+            if (next) next.focus();
+        }
+    }
+
+    // Backspace dabane par pichle box mein jane ke liye
+    function moveBack(event, current) {
+        if (event.key === "Backspace" && current.value === "") {
+            let prev = current.previousElementSibling;
+            if (prev) prev.focus();
+        }
+    }
+</script>
+
+
+<script>
+   
+    // 3. NAYA LOGIC: OTP Verification aur Redirection
+    function verifyOTP() {
+        const fields = document.querySelectorAll('.otp-field');
+        const btn = document.getElementById('verifyBtn');
+        const text = document.getElementById('btnText');
+        const spinner = document.getElementById('btnSpinner');
+        
+        // Saare fields se value akathi karein
+        let otpValue = "";
+        fields.forEach(field => otpValue += field.value);
+
+        // Check karein ke saare 6 boxes bhare hue hain
+        if (otpValue.length < 6) {
+            alert("Security Check: Please enter the complete 6-digit code.");
+            return;
+        }
+
+        // Processing State (Loader)
+        text.innerText = "Authenticating...";
+        spinner.classList.remove('d-none');
+        btn.disabled = true;
+
+        // Simulate Verification (2 seconds delay)
+        setTimeout(() => {
+            // Aap yahan koi specific code bhi check kar sakte hain, e.g., if(otpValue === "123456")
+            window.location.href = "voterdashboard.html"; 
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
